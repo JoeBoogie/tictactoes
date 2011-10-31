@@ -98,77 +98,73 @@ void setup(){
   for(int y = 0; y < 256; y +=32 ){
     for(int x = 0; x < 256; x+=32){
     matrix[ctr] = new Lamp(x,y,10,ctr);
-    
-    if((ctr == 9) || (ctr == 10)||(ctr == 17)||(ctr == 18)){
-    sectors[0].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 11) || (ctr == 12)||(ctr == 19)||(ctr == 20)){
-    sectors[1].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 13) || (ctr == 14)||(ctr == 21)||(ctr == 22)){
-    sectors[2].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 25) || (ctr == 26)||(ctr == 33)||(ctr == 34)){
-    sectors[3].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 27) || (ctr == 28)||(ctr == 35)||(ctr == 36)){
-    sectors[4].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 29) || (ctr == 30)||(ctr == 37)||(ctr == 38)){
-    sectors[5].addLampToSector(matrix[ctr]);
-    
-    }else if((ctr == 41) || (ctr == 42)||(ctr == 49)||(ctr == 50)){
-    sectors[6].addLampToSector(matrix[ctr]);
-    }else if((ctr == 43) || (ctr == 44)||(ctr == 51)||(ctr == 52)){
-    sectors[7].addLampToSector(matrix[ctr]);
-    }else if((ctr == 45) || (ctr == 46)||(ctr == 53)||(ctr == 54)){
-    sectors[8].addLampToSector(matrix[ctr]);
-    }
-    
-    
+//    
     ctr++;
     }
   }
   
-   
+   for(int i = 0; i < matrix.length; i++){
+      if((i == 0) || (i == 8)||(i == 16)||(i == 24)||(i == 32)||(i == 40)||(i == 48)||(i == 56)){
+    sectors[0].addLampToSector(matrix[i]);
+    
+    }else if((i == 1) || (i == 9)||(i == 17)||(i == 25)||(i == 33)||(i == 41)||(i == 49)||(i == 57)){
+      
+    sectors[1].addLampToSector(matrix[i]);
+    
+    }else if((i == 2) || (i == 10)||(i == 18)||(i == 26)||(i == 34)||(i == 42)||(i == 50)||(i == 58)){
+    sectors[2].addLampToSector(matrix[i]);
+    
+    }else if((i == 3) || (i == 11)||(i == 19)||(i == 27)||(i == 35)||(i == 43)||(i == 51)||(i == 59)){
+    sectors[3].addLampToSector(matrix[i]);
+    
+    }else if((i == 4) || (i == 12)||(i == 20)||(i == 28)||(i == 36)||(i == 44)||(i == 52)||(i == 60)){
+    sectors[4].addLampToSector(matrix[i]);
+    
+    }else if((i == 5) || (i == 13)||(i == 21)||(i == 29)||(i == 37)||(i == 45)||(i == 53)||(i == 61)){
+    sectors[5].addLampToSector(matrix[i]);
+    
+    }else if((i == 6) || (i == 14)||(i == 22)||(i == 30)||(i == 38)||(i == 46)||(i == 54)||(i == 62)){
+    sectors[6].addLampToSector(matrix[i]);
+    }else if((i == 7) || (i == 15)||(i == 23)||(i == 31)||(i == 39)||(i == 47)||(i == 55)||(i == 63)){
+    sectors[7].addLampToSector(matrix[i]);
+    }
+   }
   
   
-size(1280,360);
+size(720,450);
  smooth();
   cP5 = new ControlP5(this);
     background(0);
 
-  cP5.addButton("read",0,100,100,80,19);
-  cP5.addButton("write",0,100,120,80,19);
-    cP5.addButton("newgame",0,100,140,80,19);
+  cP5.addButton("read",0,100,160,80,19);
+  cP5.addButton("write",0,100,180,80,19);
+    cP5.addButton("newgame",0,100,200,80,19);
 
-textLabel = cP5.addTextlabel("label","Its Player ones turn",100,70);
+textLabel = cP5.addTextlabel("label","Its Player ones turn",100,240);
   textLabel.setColorValue(0xffcccccc);
 
-  for(int i=0;i< 9;i++) {
-    int offY = 0;
-    int offX = 0;
-    if(i > 2 && i < 6){
-    offY = 40;
-    offX = -150;
-    }else if(i > 5){
-        offY = 80;
-       offX = -300;
-    }
-    cP5.addBang("bang"+i,width/2 + i* 50 + offX, 100 +offY,20,20).setId(i);
+  for(int i=0;i< 8;i++) {
+
+//    if(i > 2 && i < 6){
+//    offY = 40;
+//    offX = -150;
+//    }else if(i > 5){
+//        offY = 80;
+//       offX = -300;
+//    }
+    cP5.addBang("bang"+i, (i* 50) + 100, 50 ,20,20).setId(i);
   }
   
-    for(int j=0;j< 9;j++) {
-    int offY = 0;
-    int offX = 0;
-    if(j > 2 && j < 6){
-    offY = 40;
-    offX = -150;
-    }else if(j > 5){
-        offY = 80;
-       offX = -300;
-    }
-    cP5.addBang("bang"+(j+9),(width/3)*2 + j* 50 + offX, 100 +offY,20,20).setId(j+9);
+    for(int j=0;j< 8;j++) {
+ 
+//    if(j > 2 && j < 6){
+//    offY = 40;
+//    offX = -150;
+//    }else if(j > 5){
+//        offY = 80;
+//       offX = -300;
+//    }
+    cP5.addBang("bang"+(j+9), (j* 50) +100 , 100 ,20,20).setId(j+9);
   }
   
   
@@ -184,7 +180,7 @@ textLabel = cP5.addTextlabel("label","Its Player ones turn",100,70);
 void draw(){
   background(0);
   pushMatrix();
-  translate(width/4,height/4);
+  translate(width/3,height/3);
   for(int j = 0;  j< matrix.length;j++){
 //    matrix[j].val = 0;
     matrix[j].display();
@@ -203,19 +199,19 @@ textLabel.setValue("Its Player twos turn");
 
 checkSectors();
 
-  if(gameover){
-    //int preVal = matrix[gameoveranim].val;
-    matrix[gameoveranim].val = 3;
-    delay(100);
-    //matrix[gameoveranim].val = preVal;
-    gameoveranim++;
-    if(gameoveranim > matrix.length-1){
-    gameoveranim = 0;
-    gameover = false;
-    newgame();
-    write();
-    }
-  }
+//  if(gameover){
+//    //int preVal = matrix[gameoveranim].val;
+//    matrix[gameoveranim].val = 3;
+//    delay(100);
+//    //matrix[gameoveranim].val = preVal;
+//    gameoveranim++;
+//    if(gameoveranim > matrix.length-1){
+//    gameoveranim = 0;
+//    gameover = false;
+//    newgame();
+//    write();
+//    }
+//  }
 }// close draw
 
 
@@ -228,8 +224,8 @@ public void controlEvent(ControlEvent theEvent) {
   println(theEvent.controller().name());
   
     if(theEvent.controller().id() > 8){
-          if(sectors[theEvent.controller().id()-9].secval == 0 && player == 2){
-          sectors[theEvent.controller().id()-9].setSectorVal(2);
+          if(sectors[theEvent.controller().id()-8].secval == 0 && player == 2){
+          sectors[theEvent.controller().id()-8].setSectorVal(2);
           player = 1;
           }
     }else{

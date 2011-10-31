@@ -6,6 +6,8 @@ class Lamp{
   int y;
   int diam;
   int ndx;
+  boolean used = false;
+  
 
   Lamp(int x, int y,int diam, int ndx){
   this.x = x;
